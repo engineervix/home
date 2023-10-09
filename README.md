@@ -36,4 +36,10 @@ See all the run scripts available via `npm run`.
 - Favicon: <https://favicon.io/>
 - `og:image`: <https://unsplash.com/photos/-Xqckh_XVU4>
 
+## TODO
+
+- [ ] Overall site design and layout
+- [ ] Add content
+- [ ] Add Sitemap and `robots.txt`
+
 ---
