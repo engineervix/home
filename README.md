@@ -2,6 +2,8 @@
 
 > Victor Miti's homepage
 
+[![CI/CD](https://github.com/engineervix/home/actions/workflows/main.yml/badge.svg)](https://github.com/engineervix/home/actions/workflows/main.yml)
+
 [![Node v18](https://img.shields.io/badge/Node-v18-teal.svg)](https://nodejs.org/en/blog/release/v18.0.0)
 [![code style: prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 
