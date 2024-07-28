@@ -4,7 +4,7 @@
 
 [![CI/CD](https://github.com/engineervix/home/actions/workflows/main.yml/badge.svg)](https://github.com/engineervix/home/actions/workflows/main.yml)
 
-[![Node v18](https://img.shields.io/badge/Node-v18-teal.svg)](https://nodejs.org/en/blog/release/v18.0.0)
+[![Node v20](https://img.shields.io/badge/Node-v20-teal.svg)](https://nodejs.org/en/blog/release/v20.0.0)
 [![code style: prettier](https://img.shields.io/badge/code%20style-prettier-ff69b4.svg)](https://prettier.io/)
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -13,7 +13,7 @@
 
 ## Development
 
-This project uses Node [v18](https://nodejs.org/en/blog/release/v18.0.0). I use [volta](https://volta.sh/) to manage node versions. If you have volta installed on your machine, then it'll automatically use the correct Node binary for this project.
+This project uses Node [v20](https://nodejs.org/en/blog/release/v18.0.0). I recommend using [fnm](https://github.com/Schniz/fnm) or [volta](https://volta.sh/) to simplify managing Node.js versions on your machine.
 
 - clone / fork the project
 - `cd` into the project directory
