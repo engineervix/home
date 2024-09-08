@@ -14,17 +14,17 @@
     "lint:format": "prettier --check 'src/**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
     "lint": "npm run lint:style && npm run lint:format",
     "css-fix": "npx stylelint src/css/ --fix",
-    "release": "standard-version"
+    "release": "commit-and-tag-version"
   },
   "devDependencies": {
     "@parcel/packager-raw-url": "^2.9.3",
     "@parcel/transformer-sass": "^2.9.3",
     "@parcel/transformer-webmanifest": "^2.9.3",
+    "commit-and-tag-version": "^12.4.2",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "parcel": "^2.9.3",
     "prettier": "^3.0.3",
-    "standard-version": "^9.5.0",
     "stylelint": "^15.10.3",
     "stylelint-config-standard-scss": "^11.0.0"
   },
@@ -50,7 +50,7 @@
     "defaults",
     "cover 99.5%"
   ],
-  "standard-version": {
+  "commit-and-tag-version": {
     "header": "# Changelog\n\nAll notable changes to this project will be documented here.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n",
     "types": [
       {
@@ -113,7 +113,7 @@
     }
   },
   "engines": {
-    "node": "^18 <21"
+    "node": "^20 <21"
   },
   "volta": {
     "node": "20.16.0"
