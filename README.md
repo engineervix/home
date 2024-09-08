@@ -23,7 +23,7 @@ This project uses Node [v20](https://nodejs.org/en/blog/release/v18.0.0). I reco
   npm install
   ```
 
-- start the dev server, accessible at <http://localhost:1234/>
+- start the dev server, accessible at <http://localhost:5173/>
 
   ```bash
   npm start

@@ -1,7 +1,10 @@
 *.env
-.parcel-cache/
 coverage/
 node_modules/
+dist
+dist-ssr
+*.local
+.env
 *.log
 logs/
 conf/
