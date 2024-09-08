@@ -79,7 +79,7 @@ jobs:
         run: |
           npm ci
 
-      - uses: extractions/setup-just@v1
+      - uses: extractions/setup-just@v2
         with:
           just-version: 1.32.0
 
