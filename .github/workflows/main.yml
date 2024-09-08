@@ -15,7 +15,7 @@ on:
       - "v*"
 
 jobs:
-  linter_stylelint:
+  stylelint:
     runs-on: ubuntu-22.04
 
     steps:
@@ -24,7 +24,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: "npm"
 
       - name: Install Dependencies
@@ -35,7 +35,7 @@ jobs:
         run: |
           npm run lint:style
 
-  linter_prettier:
+  prettier:
     runs-on: ubuntu-22.04
 
     steps:
@@ -44,7 +44,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: "npm"
 
       - name: Install Dependencies
@@ -54,3 +54,56 @@ jobs:
       - name: Prettier
         run: |
           npm run lint:format
+
+  # Creates a GitHub Release when the other two jobs succeeds, and only on pushes to tags.
+  release:
+    needs: [stylelint, prettier]
+
+    permissions:
+      contents: write
+
+    if: needs.stylelint.result == 'success' && needs.prettier.result == 'success' && startsWith( github.ref, 'refs/tags/v' )
+
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: |
+          npm ci
+
+      - uses: extractions/setup-just@v1
+        with:
+          just-version: 1.32.0
+
+      - name: Get the version
+        id: get_version
+        run: |
+          echo "${{ github.ref }}"
+          echo "VERSION=$(echo $GITHUB_REF | sed 's/refs\/tags\///')" >> $GITHUB_ENV
+
+      - name: Generate Release Title
+        id: get_release_title
+        shell: bash
+        run: |
+          export TODAY="($(TZ=Africa/Lusaka date --iso-8601=seconds))"
+          echo "RELEASE_NAME=$VERSION $TODAY" >> $GITHUB_ENV
+
+      - name: Extract Release Notes
+        # This creates a file LATEST_RELEASE_NOTES.md in the parent directory (../)
+        shell: bash
+        run: |
+          just release-notes
+
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: ${{ env.RELEASE_NAME }}
+          body_path: ../LATEST_RELEASE_NOTES.md
