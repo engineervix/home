@@ -11,26 +11,80 @@
     "build": "vite build",
     "preview": "vite preview",
     "commit": "git-cz",
-    "lint:style": "stylelint \"**/*.{scss,css}\" --ignore-path .gitignore",
-    "lint:format": "prettier --check 'src/**/?(.)*.{md,css,scss,js,json,yaml,yml}'",
-    "lint": "npm run lint:style && npm run lint:format",
-    "css-fix": "npx stylelint src/css/ --fix",
+    "eslint": "eslint --ext \".js\" --ignore-path .gitignore",
+    "prettier": "prettier --check .",
+    "stylelint": "stylelint \"**/*.{scss,css}\" --ignore-path .gitignore",
+    "prettier:fix": "prettier --write .",
+    "stylelint:fix": "npm run stylelint -- --fix",
+    "prepare": "node -e \"if (process.env.NODE_ENV !== 'production'){process.exit(1)} \" || husky",
     "release": "commit-and-tag-version"
   },
   "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/eslint-parser": "^7.25.1",
+    "@babel/preset-env": "^7.25.4",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/cz-commitlint": "^19.5.0",
+    "@commitlint/prompt-cli": "^19.5.0",
     "autoprefixer": "^10.4.20",
     "commit-and-tag-version": "^12.4.2",
     "commitizen": "^4.3.0",
+    "conventional-changelog-atom": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.0.3",
+    "sass-embedded": "^1.78.0",
     "stylelint": "^16.9.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "vite": "^5.4.3"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "parserPreset": "conventional-changelog-atom"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "npm run eslint",
+      "npm run prettier:fix"
+    ],
+    "*.{scss,css}": [
+      "npm run stylelint:fix",
+      "npm run prettier:fix"
+    ]
+  },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "@commitlint/cz-commitlint"
     }
+  },
+  "eslintConfig": {
+    "parser": "@babel/eslint-parser",
+    "extends": "plugin:prettier/recommended",
+    "parserOptions": {
+      "requireConfigFile": false,
+      "babelOptions": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      }
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true,
+    "useTabs": false,
+    "quoteProps": "consistent",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "printWidth": 100
   },
   "stylelint": {
     "extends": [
@@ -116,5 +170,10 @@
   },
   "volta": {
     "node": "20.17.0"
+  },
+  "dependencies": {
+    "@phosphor-icons/web": "^2.1.1",
+    "dayjs": "^1.11.13",
+    "modern-normalize": "^3.0.1"
   }
 }

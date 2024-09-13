@@ -1,51 +1,279 @@
-@use "sass:color";
-@import "base";
-@import "variables";
-@import "mixins";
+@use 'sass:color';
+@use 'sass:map';
+@import 'modern-normalize/modern-normalize.css';
+
+// Theme colors
+$themes: (
+  light: (
+    color-dark: #333,
+    color-gray-medium: #555,
+    color-gray-light: #666,
+    color-light: #f5f5f5,
+    color-white: #fff,
+    color-primary: #f0f,
+    color-secondary: #0ff,
+    color-link: #0073e6,
+    color-link-bg: #f0f8ff,
+    color-link-alt: #00c6ff,
+  ),
+  dark: (
+    color-dark: #f5f5f5,
+    color-gray-medium: #aaa,
+    color-gray-light: #888,
+    color-light: #222,
+    color-white: #111,
+    color-primary: #f6f,
+    color-secondary: #6ff,
+    color-link: #4da6ff,
+    color-link-bg: #1a2733,
+    color-link-alt: #66d9ff,
+  ),
+);
+
+// Utilities
+$spacer: 10px;
+$max-width-intro: 600px;
+$font-family-sans: avenir, montserrat, corbel, 'URW Gothic', source-sans-pro, sans-serif;
+$font-size-base: 1rem;
+$line-height-base: 1.5;
+
+// Function to get theme color
+@function theme-color($key, $theme) {
+  @return map.get(map.get($themes, $theme), $key);
+}
+
+// Mixin for theme-specific styles
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      @content ($theme);
+    }
+  }
+}
+
+// Root styles for theme
+:root {
+  --theme: 'light';
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme: 'dark';
+  }
+}
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
-  background-color: $dark-background;
-  color: $dark-text-color;
+  font-family: $font-family-sans;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 
-  // https://github.com/system-fonts/modern-font-stacks#geometric-humanist
-  font-family: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro,
-    sans-serif;
-  line-height: 1.5;
-  font-size: 1.5em;
+  @each $theme, $map in $themes {
+    &.theme-#{$theme},
+    &:not([class*='theme-']):root[style*="--theme: '#{$theme}'"] {
+      background-color: theme-color(color-light, $theme);
+      color: theme-color(color-dark, $theme);
+    }
+  }
 }
 
 main {
-  overflow-x: hidden;
+  flex: 1;
+}
+
+footer {
+  font-size: 0.9 * $font-size-base;
+  text-align: center;
+  padding: 2 * $spacer;
+
+  @include themed() using ($theme) {
+    background-color: theme-color(color-light, $theme);
+    color: theme-color(color-dark, $theme);
+  }
+
+  span {
+    @include themed() using ($theme) {
+      color: theme-color(color-gray-medium, $theme);
+    }
+  }
+}
+
+.landing-page {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 2 * $spacer;
+
+  .avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 0.6 * $spacer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include themed() using ($theme) {
+      background: linear-gradient(
+        45deg,
+        theme-color(color-primary, $theme),
+        theme-color(color-secondary, $theme)
+      );
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+  }
+
+  .person {
+    font-size: 2 * $font-size-base;
+    font-weight: bold;
+    margin-bottom: 2 * $spacer;
+    text-align: center;
+
+    .role {
+      display: block;
+      font-size: 1.3 * $font-size-base;
+      font-weight: normal;
+
+      @include themed() using ($theme) {
+        color: theme-color(color-gray-light, $theme);
+      }
+    }
+  }
+
+  .intro {
+    text-align: center;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    max-width: $max-width-intro;
+    margin-bottom: 2 * $spacer;
+
+    @include themed() using ($theme) {
+      color: theme-color(color-gray-medium, $theme);
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3 * $spacer;
+    margin-bottom: 4 * $spacer;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $font-size-base;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+
+      @include themed() using ($theme) {
+        color: theme-color(color-link, $theme);
+        background-color: theme-color(color-link-bg, $theme);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+
+        @include themed() using ($theme) {
+          background: linear-gradient(
+            45deg,
+            theme-color(color-link, $theme),
+            theme-color(color-link-alt, $theme)
+          );
+        }
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+        position: relative;
+        z-index: 2;
+        transition:
+          transform 0.3s ease,
+          color 0.3s ease;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+
+        @include themed() using ($theme) {
+          box-shadow: 0 5px 15px rgba(theme-color(color-link, $theme), 0.3);
+        }
+
+        &::before {
+          opacity: 1;
+        }
+
+        svg {
+          transform: scale(1.2);
+
+          @include themed() using ($theme) {
+            color: theme-color(color-white, $theme);
+          }
+        }
+      }
+    }
+  }
 }
 
-h1 {
-  font-size: 2.5em;
-  line-height: 1.1;
+// Theme toggle button styles
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+
+    @include themed() using ($theme) {
+      color: theme-color(color-dark, $theme);
+    }
+
+    &:hover {
+      @include themed() using ($theme) {
+        background-color: rgba(theme-color(color-dark, $theme), 0.1);
+      }
+    }
+
+    .sun-icon,
+    .moon-icon {
+      display: none;
+    }
+  }
 }
 
-a {
-  color: $secondary-color;
-  text-decoration: none;
-
-  &:visited {
-    color: $secondary-color;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px color.adjust($primary-color, $lightness: -20%);
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:active {
-    color: color.adjust($primary-color, $lightness: 10%);
-  }
+// Show/hide appropriate icon based on theme
+.theme-light .theme-toggle .sun-icon,
+.theme-dark .theme-toggle .moon-icon {
+  display: block;
 }

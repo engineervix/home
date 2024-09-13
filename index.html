@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1 , shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Victor Miti's homepage" />
     <meta name="author" content="Victor Miti" />
 
@@ -24,63 +21,138 @@
     <meta property="og:locale:alternate" content="en_GB" />
     <meta property="og:locale:alternate" content="en_US" />
 
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="src/ico/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="src/ico/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="src/ico/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="src/ico/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="src/ico/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="src/ico/favicon-16x16.png" />
     <link rel="manifest" href="src/ico/site.webmanifest" />
     <link rel="stylesheet" href="src/css/main.scss" />
     <title>Victor Miti » Home</title>
   </head>
   <body>
-    <main>
-      <div>
-        <h1>Victor Miti</h1>
+    <main class="landing-page">
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" aria-label="Toggle theme">
+          <svg
+            class="sun-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg
+            class="moon-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
       </div>
-      <div>
+      <div class="avatar">
+        <img
+          src="https://ik.imagekit.io/onezam/images/vic-img-5d739bd0c348016c70c391e830318ab26e779ff3afcbb6c6.jpg"
+          alt="Victor Miti"
+        />
+      </div>
+      <div class="person">Victor Miti <span class="role">Software Engineer</span></div>
+      <div class="intro">
+        I transform ideas into robust, scalable digital solutions. By combining technical expertise
+        with creative problem-solving, I craft code that not only meets your current needs but also
+        adapts to future challenges. My goal is to deliver high-performance applications that drive
+        your success and make a lasting impact in your field.
+      </div>
+      <div class="links">
         <a
-          href="https://github.com/engineervix/"
+          href="mailto:hello@victor.co.zm?subject=Hello%20%F0%9F%91%8B&body=Hi%20Victor%2C"
+          title="Drop me an email"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          href="https://github.com/engineervix"
           target="_blank"
           rel="noopener noreferrer"
-          >GitHub</a
+          title="Github"
         >
-      </div>
-      <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
+            ></path>
+          </svg>
+        </a>
+        <a href="https://blog.victor.co.zm" target="_blank" rel="noopener noreferrer" title="Blog">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM184,96a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,96Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,128Zm0,32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,160Z"
+            ></path>
+          </svg>
+        </a>
         <a
-          href="https://blog.victor.co.zm/"
+          href="https://x.com/engineervix"
           target="_blank"
           rel="noopener noreferrer"
-          >Blog</a
+          title="X (Twitter)"
         >
-      </div>
-      <div>
-        <a
-          href="https://twitter.com/engineervix/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >X</a
-        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            fill="currentColor"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z"
+            ></path>
+          </svg>
+        </a>
       </div>
     </main>
-    <!-- Cloudflare Web Analytics -->
-    <script
-      defer
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "b30e94dba69e459dbb38b473552b77f3"}'
-    ></script>
-    <!-- End Cloudflare Web Analytics -->
+
+    <footer></footer>
+    <script type="module" src="src/js/main.js"></script>
   </body>
 </html>
