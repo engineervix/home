@@ -9,6 +9,7 @@ dist-ssr
 logs/
 conf/
 dist/
+.wrangler
 
 # OS generated files
 .DS_Store
