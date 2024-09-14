@@ -44,15 +44,4 @@ const buildDate = dayjs(__BUILD_DATE__)
 // Calculate the relative time from the build date
 const lastRebuilt = buildDate.fromNow()
 
-footer.innerHTML = `Copyright © ${currentYear} Victor Miti. <span>Last rebuilt ${lastRebuilt}.</span>`
-
-/* █████████████████████████████████ ANALYTICS █████████████████████████████████ */
-
-// Add cloudflare analytics in production
-if (import.meta.env.PROD) {
-  const script = document.createElement('script')
-  script.src = 'https://static.cloudflareinsights.com/beacon.min.js'
-  script.defer = true
-  script.setAttribute('data-cf-beacon', '{"token": "b30e94dba69e459dbb38b473552b77f3"}')
-  document.body.appendChild(script)
-}
+footer.innerHTML = `Copyright © ${currentYear}, Victor Miti. <span>Last rebuilt ${lastRebuilt}.</span>`
