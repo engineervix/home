@@ -4,6 +4,40 @@ All notable changes to this project will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project attempts to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.2.0](https://github.com/engineervix/home/compare/v0.1.0...v0.2.0) (2024-09-14)
+
+
+### 🚀 Features
+
+* add robots.txt ([261dbcf](https://github.com/engineervix/home/commit/261dbcf3f3b760fb051871a2a1de5ecfd7ea6522))
+* rewrite homepage ([897a0d9](https://github.com/engineervix/home/commit/897a0d9c35acf2b77787fd4effa332cb9cca64fb))
+
+
+### 🐛 Bug Fixes
+
+* improve color contrast ratio on role text in dark theme ([3723541](https://github.com/engineervix/home/commit/37235417a8a2b5208f33f2ffdc36d6d736fbf520))
+
+
+### ♻️ Code Refactoring
+
+* cloudflare analytics are handled automatically ([d7d1e99](https://github.com/engineervix/home/commit/d7d1e99ca5a56dcd1fcc5268bff0a011a021e9cc))
+* tidy up meta info ([bfb9639](https://github.com/engineervix/home/commit/bfb9639c4bf21af24f0c62f8b28e663ef370fdef))
+
+
+### ⚙️ Build System
+
+* bump stylelint and stylelint-config-standard-scss to latest ([df16791](https://github.com/engineervix/home/commit/df167914343d62b600f9514057dbfbbf67862de7))
+* **deps:** update node.js to v20.17.0 ([#21](https://github.com/engineervix/home/issues/21)) ([9fb8661](https://github.com/engineervix/home/commit/9fb8661af7021cb21dec9b60da11eb51cb4fb268))
+* remove sass altogether ([13f6569](https://github.com/engineervix/home/commit/13f65699febcdcbda840dad73b049c4f656c358a))
+* replace sass-embedded with sass ([648d9d7](https://github.com/engineervix/home/commit/648d9d75dcc4107113f391c605835bd005b315f8))
+* switch from parcel to vite ([80e3a33](https://github.com/engineervix/home/commit/80e3a33982e10ecd2018e8d47f53d23e260fcbdf))
+
+
+### 👷 CI/CD
+
+* **deps:** update extractions/setup-just action to v2 ([#22](https://github.com/engineervix/home/issues/22)) ([0e88826](https://github.com/engineervix/home/commit/0e88826cb3cc2f9ed87154cb8e00c659aceabc85))
+* **deps:** update softprops/action-gh-release action to v2 ([#23](https://github.com/engineervix/home/issues/23)) ([dda660a](https://github.com/engineervix/home/commit/dda660a24ed45b98759e10f4967c339b9efe8762))
+
 ## 0.1.0 (2024-09-08)
 
 
