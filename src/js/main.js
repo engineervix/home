@@ -44,4 +44,4 @@ const buildDate = dayjs(__BUILD_DATE__)
 // Calculate the relative time from the build date
 const lastRebuilt = buildDate.fromNow()
 
-footer.innerHTML = `Copyright © ${currentYear}, Victor Miti. <span>Last rebuilt ${lastRebuilt}.</span>`
+footer.innerHTML = `© ${currentYear}, Victor Miti. <span>Last updated ${lastRebuilt}.</span>`
