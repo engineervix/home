@@ -168,7 +168,7 @@
     "node": "^20 <21"
   },
   "volta": {
-    "node": "20.17.0"
+    "node": "20.18.2"
   },
   "dependencies": {
     "@phosphor-icons/web": "^2.1.1",
