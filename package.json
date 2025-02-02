@@ -171,7 +171,6 @@
     "node": "20.17.0"
   },
   "dependencies": {
-    "@phosphor-icons/web": "^2.1.1",
     "dayjs": "^1.11.13",
     "modern-normalize": "^3.0.1"
   }
