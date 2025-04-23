@@ -89,6 +89,10 @@ footer {
   font-size: 0.9 * $font-size-base;
   text-align: center;
   padding: 2 * $spacer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacer;
 
   @include themed() using ($theme) {
     background-color: theme-color(color-light, $theme);
