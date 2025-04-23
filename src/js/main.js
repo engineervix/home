@@ -50,29 +50,21 @@ const buildDate = dayjs(__BUILD_DATE__)
 // Calculate the relative time from the build date
 const lastRebuilt = buildDate.fromNow()
 
-footer.innerHTML = `<p>© ${currentYear}, Victor Miti. <span>Last updated ${lastRebuilt}.</span></p>`
+const copyrightElement = document.createElement('p')
+copyrightElement.innerHTML = `© ${currentYear}, Victor Miti. <span>Last updated ${lastRebuilt}.</span>`
+footer.prepend(copyrightElement)
 
-// Add carbon badge
-const carbonBadge = document.createElement('div')
-carbonBadge.id = 'wcb'
-carbonBadge.classList.add('carbonbadge')
-
-footer.appendChild(carbonBadge)
-
-// Load the carbon badge script
-const carbonScript = document.createElement('script')
-carbonScript.src = 'https://unpkg.com/website-carbon-badges@1.1.3/b.min.js'
-carbonScript.defer = true
-document.body.appendChild(carbonScript)
-
-// Update carbon badge theme
+// Update carbon badge theme based on current theme
 function updateCarbonBadgeTheme(isDarkTheme) {
-  if (isDarkTheme) {
-    carbonBadge.classList.add('wcb-d')
-  } else {
-    carbonBadge.classList.remove('wcb-d')
+  const badge = document.getElementById('wcb')
+  if (badge) {
+    if (isDarkTheme) {
+      badge.classList.add('wcb-d')
+    } else {
+      badge.classList.remove('wcb-d')
+    }
   }
 }
 
-// Apply initial theme
+// Apply initial theme to carbon badge
 updateCarbonBadgeTheme(document.body.className.includes('theme-dark'))
