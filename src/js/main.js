@@ -26,17 +26,11 @@ themeToggleBtn.addEventListener('click', () => {
   const currentTheme = document.body.className.includes('theme-dark') ? 'dark' : 'light'
   const newTheme = currentTheme === 'light' ? 'dark' : 'light'
   setTheme(newTheme)
-
-  // Update badge theme
-  updateCarbonBadgeTheme(newTheme === 'dark')
 })
 
 // Listen for changes in system preferences
 prefersDarkScheme.addEventListener('change', (e) => {
   setTheme(e.matches ? 'dark' : 'light')
-
-  // Update badge theme
-  updateCarbonBadgeTheme(e.matches)
 })
 
 /* █████████████████████████████████ FOOTER █████████████████████████████████ */
@@ -50,21 +44,4 @@ const buildDate = dayjs(__BUILD_DATE__)
 // Calculate the relative time from the build date
 const lastRebuilt = buildDate.fromNow()
 
-const copyrightElement = document.createElement('p')
-copyrightElement.innerHTML = `© ${currentYear}, Victor Miti. <span>Last updated ${lastRebuilt}.</span>`
-footer.prepend(copyrightElement)
-
-// Update carbon badge theme based on current theme
-function updateCarbonBadgeTheme(isDarkTheme) {
-  const badge = document.getElementById('wcb')
-  if (badge) {
-    if (isDarkTheme) {
-      badge.classList.add('wcb-d')
-    } else {
-      badge.classList.remove('wcb-d')
-    }
-  }
-}
-
-// Apply initial theme to carbon badge
-updateCarbonBadgeTheme(document.body.className.includes('theme-dark'))
+footer.innerHTML = `© ${currentYear}, Victor Miti. <span>Last updated ${lastRebuilt}.</span>`
