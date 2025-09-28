@@ -166,10 +166,10 @@
     }
   },
   "engines": {
-    "node": "^20 <21"
+    "node": "^20 <23"
   },
   "volta": {
-    "node": "20.19.1"
+    "node": "22.20.0"
   },
   "dependencies": {
     "dayjs": "^1.11.13",
