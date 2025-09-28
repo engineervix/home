@@ -14,7 +14,7 @@
 
 ## Development
 
-This project uses Node [v20](https://nodejs.org/en/blog/release/v18.0.0). I recommend using [fnm](https://github.com/Schniz/fnm) or [volta](https://volta.sh/) to simplify managing Node.js versions on your machine.
+This project uses Node [v22](https://nodejs.org/en/blog/release/v22.0.0). I recommend using [fnm](https://github.com/Schniz/fnm) or [volta](https://volta.sh/) to simplify managing Node.js versions on your machine.
 
 - clone / fork the project
 - `cd` into the project directory
