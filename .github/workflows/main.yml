@@ -22,7 +22,7 @@ jobs:
       - name: Checkout Code Repository
         uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: 'npm'
@@ -42,7 +42,7 @@ jobs:
       - name: Checkout Code Repository
         uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: 'npm'
@@ -62,7 +62,7 @@ jobs:
       - name: Checkout Code Repository
         uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: 'npm'
@@ -90,7 +90,7 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: 'npm'
