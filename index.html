@@ -173,7 +173,21 @@
       </div>
     </main>
 
-    <footer></footer>
+    <footer>
+      <!-- Website Carbon Badge: dynamically populated by the script below.
+           The `wcb-d` class is toggled by main.js to match the active theme.
+           SRI + crossorigin pin the script content — unpkg is a third party
+           and a compromised/bad publish would otherwise run with full page
+           access. Hash was generated from the same b.min.js bytes that
+           website-carbon-badges@1.1.3 publishes. -->
+      <div id="wcb" class="carbonbadge"></div>
+      <script
+        src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
+        integrity="sha384-5Sivu2UajgUNg6Sxu3UHsZKjZlq9v6/slTAhA0/s21XcfNcrkSZRRO9K/0Cg14iP"
+        crossorigin="anonymous"
+        defer
+      ></script>
+    </footer>
     <script type="module" src="src/js/main.js"></script>
   </body>
 </html>

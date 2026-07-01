@@ -100,6 +100,13 @@ footer {
       color: theme-color(color-gray-medium, $theme);
     }
   }
+
+  // The Website Carbon badge injects its own #wcb div. The badge script
+  // (b.min.js) handles all internal styling; we just add a little breathing
+  // room between the badge and the copyright line that follows.
+  #wcb {
+    margin-bottom: 1 * $spacer;
+  }
 }
 
 .landing-page {
