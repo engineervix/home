@@ -105,7 +105,7 @@ footer {
   // (b.min.js) handles all internal styling; we just add a little breathing
   // room between the badge and the copyright line that follows.
   #wcb {
-    margin-bottom: $spacer;
+    margin-bottom: 1 * $spacer;
   }
 }
 
