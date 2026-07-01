@@ -5,11 +5,17 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 
 const themeToggleBtn = document.getElementById('theme-toggle-btn')
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)')
+const websiteCarbonBadge = document.getElementById('wcb')
 
 function setTheme(theme) {
   document.body.className = `theme-${theme}`
   document.documentElement.style.setProperty('--theme', `'${theme}'`)
   localStorage.setItem('theme', theme)
+  // Keep the Website Carbon badge in sync with the active theme.
+  // The `wcb-d` class swaps the badge to its dark variant (see b.min.css).
+  if (websiteCarbonBadge) {
+    websiteCarbonBadge.classList.toggle('wcb-d', theme === 'dark')
+  }
 }
 
 // Set initial theme based on user preference or stored value
@@ -44,4 +50,9 @@ const buildDate = dayjs(__BUILD_DATE__)
 // Calculate the relative time from the build date
 const lastRebuilt = buildDate.fromNow()
 
-footer.innerHTML = `© ${currentYear}, Victor Miti. <span>Last updated ${lastRebuilt}.</span>`
+// The Website Carbon badge (`#wcb`) already lives in the footer markup.
+// Append the copyright + last-updated line after it.
+footer.insertAdjacentHTML(
+  'beforeend',
+  `© ${currentYear}, Victor Miti. <span>Last updated ${lastRebuilt}.</span>`
+)
