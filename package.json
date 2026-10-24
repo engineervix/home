@@ -28,7 +28,7 @@
     "@commitlint/cz-commitlint": "^20.0.0",
     "@commitlint/prompt-cli": "^20.0.0",
     "autoprefixer": "^10.4.20",
-    "commit-and-tag-version": "^12.4.2",
+    "commit-and-tag-version": "^13.0.0",
     "commitizen": "^4.3.0",
     "conventional-changelog-atom": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
